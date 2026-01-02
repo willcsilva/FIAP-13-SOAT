@@ -27,6 +27,7 @@ build/
 *.key
 *.pub
 aws-key*
+id_e*
 
 # Ignora arquivos oculto do terraform
 .terraform/
