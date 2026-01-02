@@ -6,7 +6,7 @@ resource "aws_key_pair" "key" {
 variable "instance_count" {
   description = "Quantidade de instâncias EC2 Spot"
   type        = number
-  default     = 2
+  default     = 3
 }
 
 resource "aws_instance" "vm" {

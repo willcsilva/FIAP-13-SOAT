@@ -25,6 +25,7 @@ build/
 # Ignora arquivos RSA
 *.pem
 *.key
+*.pub
 aws-key*
 
 # Ignora arquivos oculto do terraform
