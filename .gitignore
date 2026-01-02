@@ -1,0 +1,32 @@
+# Ignora arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignora diretórios de dependências
+node_modules/
+vendor/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos de ambiente
+.env
+
+# Ignora diretórios de build
+dist/
+build/
+
+# Ignora arquivos temporários do editor
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Ignora arquivos RSA
+*.pem
+*.key
+aws-key*
+
+# Ignora arquivos oculto do terraform
+.terraform/
+.terraform*
