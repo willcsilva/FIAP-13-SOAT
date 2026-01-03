@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: Terraform-VPC
+=======
+name: Terraform-VPC-EKS
+>>>>>>> 51ad72b (Adicionandno VPC EKS)
 on:
   push:
     branches:
@@ -8,7 +12,7 @@ on:
       - main
 jobs:
   terraform:
-    name: 'Terraform-VPC'
+    name: 'Terraform-VPC-EKS'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -33,14 +37,18 @@ jobs:
         run: aws sts get-caller-identity
 
       - name: Terraform Init
-        run: cd 1-VPC && terraform init
+        run: cd 3-K8S && terraform init
 
       - name: Terraform Validate
-        run: cd 1-VPC && terraform validate
+        run: cd 3-K8S && terraform validate
 
       - name: Terraform Plan
-        run: cd 1-VPC && terraform plan
+        run: cd 3-K8S && terraform plan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+<<<<<<< HEAD
         run: cd 1-VPC && terraform apply -auto-approve 
+=======
+        run: cd 3-K8S && terraform apply -auto-approve 
+>>>>>>> 51ad72b (Adicionandno VPC EKS)
