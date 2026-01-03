@@ -22,7 +22,7 @@ jobs:
         run: aws sts get-caller-identity
 
       - name: Terraform Init
-        run: cd 1-VPC
+        run: cd 1-VPC && terraform init
 
       - name: Terraform Destroy
-        run: cd 1-VPC && terraform destroy -auto-approve
+        run: cd 1-VPC && terraform destroy --auto-approve
