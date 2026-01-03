@@ -43,4 +43,27 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: cd 3-K8S/VPC && terraform apply -auto-approve 
+        run: cd 3-K8S/VPC && terraform apply -auto-approve
+  terraform-eks:
+    needs: terraform
+    name: 'Terraform-EKS'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.3
+      - name: Terraform Init
+        run: cd 3-K8S/EKS && terraform init
+      - name: Terraform Validate
+        run: cd 3-K8S/EKS && terraform validate
+      - name: Terraform Formate
+        run: cd 3-K8S/EKS && terraform fmt -check
+      - name: Terraform Plan
+        run: cd 3-K8S/EKS && terraform plan
