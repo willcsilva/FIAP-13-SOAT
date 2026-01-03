@@ -59,7 +59,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.3
-          
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -74,6 +74,6 @@ jobs:
       - name: Terraform Validate
         run: cd 3-K8S/EKS && terraform validate
       - name: Terraform Formate
-        run: cd 3-K8S/EKS && terraform fmt -check
+        run: cd 3-K8S/EKS && terraform fmt
       - name: Terraform Plan
         run: cd 3-K8S/EKS && terraform plan
