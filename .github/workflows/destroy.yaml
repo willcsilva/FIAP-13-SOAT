@@ -28,9 +28,15 @@ jobs:
 
       - name: Verify AWS creds
         run: aws sts get-caller-identity
-
+      
       - name: Terraform Init
-        run: cd 1-VPC && terraform init
+        run: cd 3-K8S/EKS && terraform init
 
       - name: Terraform Destroy
-        run: cd 1-VPC && terraform destroy --auto-approve
+        run: cd 3-K8S/EKS && terraform destroy --auto-approve
+
+      - name: Terraform Init
+        run: cd 3-K8S/VPC && terraform init
+
+      - name: Terraform Destroy
+        run: cd 3-K8S/VPC && terraform destroy --auto-approve
