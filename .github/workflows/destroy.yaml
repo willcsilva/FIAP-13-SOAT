@@ -25,4 +25,5 @@ jobs:
         run: cd 1-VPC && terraform init
 
       - name: Terraform Destroy
-        run: cd 1-VPC && terraform destroy --auto-approve
+        working-directory: ./1-VPC
+        run: terraform destroy --auto-approve
