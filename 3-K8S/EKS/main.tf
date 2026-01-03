@@ -2,8 +2,8 @@ terraform {
   # Configuração dos provedores necessários
   required_providers {
     aws = {
-      source  = "hashicorp/aws" # Provedor AWS oficial da HashiCorp
-      version = "~> 6.0"        # Versão 5.x (última estável)
+      source  = "hashicorp/aws" 
+      version = "~> 6.0"        
     }
   }
 
@@ -17,7 +17,7 @@ terraform {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "s3-bucket-willow"        # ajuste
+    bucket = "s3-bucket-willow"        # ajuste para o seu bucket S3
     key    = "state/eks/vpc/tf-state" # ajuste para o path onde o VPC grava o state
     region = "us-east-2"
   }
@@ -42,10 +42,8 @@ module "eks" {
   }
 
 
-  # Optional
   endpoint_public_access = true
 
-  # Optional: Adds the current caller identity as an administrator via cluster access entry
   enable_cluster_creator_admin_permissions = true
 
 vpc_id                   = data.terraform_remote_state.vpc.outputs.vpc_id
@@ -55,7 +53,7 @@ control_plane_subnet_ids = data.terraform_remote_state.vpc.outputs.private_subne
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
     example = {
-      # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
+      
     ami_type       = "AL2023_ARM_64_STANDARD"
     instance_types = ["t4g.xlarge"]
     capacity_type  = "SPOT"
