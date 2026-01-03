@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-name: Terraform-VPC
-=======
 name: Terraform-VPC-EKS
->>>>>>> 51ad72b (Adicionandno VPC EKS)
 on:
   push:
     branches:
@@ -47,8 +43,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-<<<<<<< HEAD
-        run: cd 1-VPC && terraform apply -auto-approve 
-=======
         run: cd 3-K8S && terraform apply -auto-approve 
->>>>>>> 51ad72b (Adicionandno VPC EKS)
