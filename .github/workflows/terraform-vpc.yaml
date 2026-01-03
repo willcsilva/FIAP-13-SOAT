@@ -77,3 +77,6 @@ jobs:
         run: cd 3-K8S/EKS && terraform fmt
       - name: Terraform Plan
         run: cd 3-K8S/EKS && terraform plan
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: cd 3-K8S/EKS && terraform apply -auto-approve
