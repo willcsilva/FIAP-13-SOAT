@@ -52,7 +52,7 @@ control_plane_subnet_ids = data.terraform_remote_state.vpc.outputs.private_subne
 
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
-    ec2-eks-fiap-13-soat-mng = {
+    ec2-fiap-13-soat = {
       
     ami_type       = "AL2023_ARM_64_STANDARD"
     instance_types = ["t4g.xlarge"]
