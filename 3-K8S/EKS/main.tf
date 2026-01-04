@@ -27,7 +27,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 21.0"
 
-  name    = "my-cluster"
+  name    = "cluster-eks-fiap-13-soat"
   kubernetes_version = "1.33"
 
   addons = {
@@ -52,7 +52,7 @@ control_plane_subnet_ids = data.terraform_remote_state.vpc.outputs.private_subne
 
   # EKS Managed Node Group(s)
   eks_managed_node_groups = {
-    example = {
+    ec2-eks-fiap-13-soat-mng = {
       
     ami_type       = "AL2023_ARM_64_STANDARD"
     instance_types = ["t4g.xlarge"]

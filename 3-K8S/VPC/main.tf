@@ -19,7 +19,7 @@ data "aws_availability_zones" "available" {
 }
 
 locals {
-  name = "eks-Fiap-13-soat"  # Define o nome da VPC principal baseado no diretório atual
+  name = "fiap-13-soat"  # Define o nome da VPC principal baseado no diretório atual
   region = var.region                  # Atribui a região da variável para o local
   vpc_cidr = var.vpc_cidr             # Atribui o bloco CIDR da VPC principal para o local
   azs = slice(data.aws_availability_zones.available.names, 0, 3)  # Obtém os nomes das três primeiras zonas de disponibilidade na região
